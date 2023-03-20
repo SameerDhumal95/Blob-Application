@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="2"/>
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="bitbucket.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/SameerDhumal95/Blob-Application.git"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\Users\Sameer-PC\git\Blob-Application\.git">
+			<item value="false"/>
+			<item value="SameerDhumal &lt;90055461+SameerDhumal@users.noreply.github.com&gt;"/>
+			<item value="test commit"/>
+			<item value="SameerDhumal &lt;90055461+SameerDhumal@users.noreply.github.com&gt;"/>
+			<item value="796fb1d03cd49115517ba4375f4c87c977dbd112"/>
+			<item value="0"/>
+			<item value="false"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="GitImportWizard">
+	</section>
+</section>
