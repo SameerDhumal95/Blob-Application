@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.codewithsameer.blog.payloads.ApiResponse;
 import com.codewithsameer.blog.payloads.CategoryDto;
+import com.codewithsameer.blog.payloads.UserDto;
 import com.codewithsameer.blog.services.CategoryService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -27,7 +30,7 @@ public class CategoryController {
 	//create
 	
 	@PostMapping("/")
-	public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categDto)
+	public ResponseEntity<CategoryDto> createCategory(@Valid@RequestBody CategoryDto categDto)
 	{
 		CategoryDto createCategory = this.categoryService.createCategory(categDto);
 	    return new ResponseEntity<CategoryDto>(createCategory,HttpStatus.CREATED);
@@ -35,7 +38,7 @@ public class CategoryController {
 	
 	//update
 	@PutMapping("/{catId}")
-	public ResponseEntity<CategoryDto> updatedCategory(@RequestBody CategoryDto categoryDto,@PathVariable Integer catId)
+	public ResponseEntity<CategoryDto> updatedCategory(@Valid@RequestBody CategoryDto categoryDto,@PathVariable Integer catId)
 	{
 		CategoryDto updatedCategory = this.categoryService.updateCategory(categoryDto, catId);
 	    return new ResponseEntity<CategoryDto>(updatedCategory,HttpStatus.CREATED);
@@ -48,7 +51,7 @@ public class CategoryController {
 	    return new ResponseEntity<ApiResponse>(new ApiResponse("Category is deleted Successfully !!",true),HttpStatus.OK);
 	}
 	
-	//get
+	//get single user
 	@GetMapping("/{catId}")
 	public ResponseEntity<CategoryDto> getCategory(@PathVariable Integer catId)
 	{
@@ -58,9 +61,11 @@ public class CategoryController {
 	//get all
 	
 	@GetMapping("/")
-	public ResponseEntity<List<CategoryDto>> getCategory()
+	public ResponseEntity<List<CategoryDto>> getCategories()
 	{
-	 List<CategoryDto> categories =  this.categoryService.getCategories();
+	    List<CategoryDto> categories =  this.categoryService.getCategories();
 	    return ResponseEntity.ok(categories);
 	}
+	
+
 }
