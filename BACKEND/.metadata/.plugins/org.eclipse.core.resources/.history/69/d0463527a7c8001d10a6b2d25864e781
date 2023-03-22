@@ -1,0 +1,5 @@
+package com.codewithsameer.blog.repositories;
+
+public interface PostRepo {
+
+}

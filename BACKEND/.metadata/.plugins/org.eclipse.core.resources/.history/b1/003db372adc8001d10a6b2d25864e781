@@ -1,0 +1,26 @@
+package com.codewithsameer.blog.payloads;
+
+import java.util.Date;
+
+import com.codewithsameer.blog.entities.Category;
+import com.codewithsameer.blog.entities.User;
+
+import jakarta.persistence.ManyToOne;
+
+public class PostDto {
+
+	private String title;
+	
+	private String content;
+	
+	private String imageName;
+	
+	private Date addedDate;
+   
+	private Category category;
+	
+	
+	private User user;
+	
+	
+}
