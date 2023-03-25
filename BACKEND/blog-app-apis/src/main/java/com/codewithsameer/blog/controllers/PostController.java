@@ -18,12 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codewithsameer.blog.entities.Post;
 import com.codewithsameer.blog.payloads.ApiResponse;
 import com.codewithsameer.blog.payloads.PostDto;
+import com.codewithsameer.blog.payloads.PostResponse;
 import com.codewithsameer.blog.services.PostService;
 
 @RestController
 @RequestMapping("/api/")
 public class PostController {
 
+	private static final PostResponse PostResponse = null;
 	@Autowired
 	private PostService postService;
 	
@@ -66,13 +68,13 @@ public class PostController {
 	//get all post
 	
 	@GetMapping("/posts")
-	public ResponseEntity<List<PostDto>> getAllPost(//pageNumber will starts from 0
-	@RequestParam(value = "pageNumber",defaultValue = "1", required =  false) Integer pageNumber,
-	@RequestParam(value="pageSize",defaultValue ="5", required = false) Integer pageSize)
+	public ResponseEntity<PostResponse> getAllPost(//pageNumber will starts from 0
+	@RequestParam(value = "pageNumber",defaultValue = "0", required =  false) Integer pageNumber,
+	@RequestParam(value="pageSize",defaultValue ="10", required = false) Integer pageSize)
 	{
-	   List<PostDto> allPost = this.postService.getAllPost(pageNumber,pageSize);
+	    PostResponse postResponse = this.postService.getAllPost(pageNumber,pageSize);
 		
-		return new ResponseEntity<List<PostDto>>(allPost,HttpStatus.OK);
+		return new ResponseEntity<PostResponse>(postResponse,HttpStatus.OK);
 	}
 	
 	//get post details by id

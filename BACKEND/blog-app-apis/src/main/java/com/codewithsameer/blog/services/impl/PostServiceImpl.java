@@ -17,6 +17,7 @@ import com.codewithsameer.blog.entities.Post;
 import com.codewithsameer.blog.entities.User;
 import com.codewithsameer.blog.exceptions.ResourceNotFoundException;
 import com.codewithsameer.blog.payloads.PostDto;
+import com.codewithsameer.blog.payloads.PostResponse;
 import com.codewithsameer.blog.repositories.CategoryRepo;
 import com.codewithsameer.blog.repositories.PostRepo;
 import com.codewithsameer.blog.repositories.UserRepo;
@@ -75,7 +76,7 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<PostDto> getAllPost(Integer pageNumber , Integer pageSize) {
+	public PostResponse getAllPost(Integer pageNumber , Integer pageSize) {
 	//public List<PostDto> getAllPost(){
 		
 		org.springframework.data.domain.Pageable p = PageRequest.of(pageNumber, pageSize);
@@ -84,7 +85,16 @@ public class PostServiceImpl implements PostService {
 		List<Post> allPosts  = pagePost.getContent();
 		
 		List<PostDto> postDtos = allPosts.stream().map((post)->this.modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
-		return postDtos;
+		
+		PostResponse postResponse  = new PostResponse();
+		
+		postResponse.setContent(postDtos);
+		postResponse.setPageNumber(pagePost.getNumber());
+		postResponse.setPageSize(pagePost.getSize());	
+		postResponse.setTotalElements(pagePost.getTotalElements());
+		postResponse.setTotalPages(pagePost.getTotalPages());
+		postResponse.setLastPage(pagePost.isLast());
+		return postResponse;
 	}
 
 	@Override

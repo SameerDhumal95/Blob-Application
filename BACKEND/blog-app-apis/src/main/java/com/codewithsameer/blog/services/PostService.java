@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.codewithsameer.blog.entities.Post;
 import com.codewithsameer.blog.payloads.PostDto;
+import com.codewithsameer.blog.payloads.PostResponse;
 
 public interface PostService {
 
@@ -20,8 +21,8 @@ public interface PostService {
 	void deletePost(Integer postId);
 	
 	//get all post
-	//List<PostDto> getAllPost();
-	List<PostDto> getAllPost(Integer pageNumber , Integer pageSize);
+	
+	PostResponse getAllPost(Integer pageNumber , Integer pageSize);
 	
 	//get single post
 	
