@@ -1,5 +1,0 @@
-package com.codewithsameer.blog.payloads;
-
-public class PostDto {
-
-}

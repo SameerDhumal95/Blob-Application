@@ -1,4 +1,4 @@
-package com.codewithsameer.blog.services.impl;
+ package com.codewithsameer.blog.services.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,7 +26,7 @@ public class FileServiceImpl implements FileService {
 		
 		//random name generate file
 		String randomID = UUID.randomUUID().toString();
-		String fileName1=randomID.concat(name.substring(name.lastIndexOf(",")));
+		String fileName1=randomID.concat(name.substring(name.lastIndexOf(".")));
 		
 		//FullPath
 		String filePath = path + File.separator + fileName1;
@@ -50,7 +50,7 @@ public class FileServiceImpl implements FileService {
 	public InputStream getResource(String path, String fileName) throws FileNotFoundException {
 		String fullPath = path + File.separator+fileName;
 		InputStream is = new FileInputStream(fullPath);
-		//do logic to return InputStream
+		
 		return is;
 		
 	}

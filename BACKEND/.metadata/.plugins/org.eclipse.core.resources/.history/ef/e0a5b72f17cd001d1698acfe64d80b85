@@ -1,5 +1,0 @@
-package com.codewithsameer.blog.services;
-
-public interface FileService {
-
-}

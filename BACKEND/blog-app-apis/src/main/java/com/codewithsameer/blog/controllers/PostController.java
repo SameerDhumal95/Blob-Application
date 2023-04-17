@@ -1,13 +1,16 @@
 package com.codewithsameer.blog.controllers;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +30,8 @@ import com.codewithsameer.blog.payloads.PostResponse;
 import com.codewithsameer.blog.services.FileService;
 import com.codewithsameer.blog.services.PostService;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 @RestController
 @RequestMapping("/api/")
 public class PostController {
@@ -39,8 +44,8 @@ public class PostController {
 	private FileService fileService;
 	
 	@Value("${project.image}")
-	
 	private String path;
+	
 	//create posts
 	@PostMapping("/user/{userId}/category/{categoryId}/posts")
 	public ResponseEntity<PostDto> createPost(
@@ -128,8 +133,24 @@ public class PostController {
 		
 	}
 	
+	//method to serve files
+	@GetMapping(value="post/image/{imageName}",produces = MediaType.IMAGE_JPEG_VALUE)
+	public void downloadImage(
+			@PathVariable("imageName") String imageName,
+			HttpServletResponse response) throws IOException
+	{
+		InputStream resource = this.fileService.getResource(path, imageName);
+		response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+		StreamUtils.copy(resource, response.getOutputStream());
+	}
+	
+	
+	
+	
+	
+	
 	//post image upload
-	@PostMapping("/post/image/upload/(postId)")
+	@PostMapping("/post/image/upload/{postId}")
 	public ResponseEntity<PostDto> uploadPostImage(
 			@RequestParam("image") MultipartFile image,
 			@PathVariable Integer postId
@@ -140,6 +161,7 @@ public class PostController {
 		String fileName = this.fileService.uploadImage(path, image);
 		
 	    postDto.setImageName(fileName);
+	    
 	    PostDto updatePost = this.postService.updatePost(postDto, postId);
 	    
 	    return new ResponseEntity<PostDto>(updatePost,HttpStatus.OK);

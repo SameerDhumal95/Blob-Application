@@ -12,6 +12,8 @@ public class BlogAppApisApplication {
 		SpringApplication.run(BlogAppApisApplication.class, args);
 	}
 
+	///Bean added
+	
 	@Bean
 	public ModelMapper modelMapper()
 	{
