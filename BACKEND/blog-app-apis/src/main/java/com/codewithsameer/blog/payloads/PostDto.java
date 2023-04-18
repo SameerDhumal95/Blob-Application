@@ -1,8 +1,11 @@
 package com.codewithsameer.blog.payloads;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.codewithsameer.blog.entities.Category;
+import com.codewithsameer.blog.entities.Comment;
 import com.codewithsameer.blog.entities.User;
 
 import jakarta.persistence.ManyToOne;
@@ -30,5 +33,5 @@ public class PostDto {
 	
 	private UserDto user;
 	
-	
+	private Set<CommentDto> comments = new HashSet<>();
 }
