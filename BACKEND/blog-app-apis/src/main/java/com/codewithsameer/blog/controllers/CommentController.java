@@ -7,12 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codewithsameer.blog.payloads.ApiResponse;
 import com.codewithsameer.blog.payloads.CommentDto;
+import com.codewithsameer.blog.payloads.PostDto;
 import com.codewithsameer.blog.services.CommentService;
 
 @RestController
@@ -38,5 +40,6 @@ public class CommentController {
 		 this.commentService.deleteComment(commentId);
 		return new ResponseEntity<ApiResponse>(new ApiResponse("Comment deleted Successfully...!", true),HttpStatus.OK);
 	}
+	
 	
 }

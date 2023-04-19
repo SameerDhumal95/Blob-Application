@@ -8,6 +8,7 @@ import com.codewithsameer.blog.entities.Comment;
 import com.codewithsameer.blog.entities.Post;
 import com.codewithsameer.blog.exceptions.ResourceNotFoundException;
 import com.codewithsameer.blog.payloads.CommentDto;
+import com.codewithsameer.blog.payloads.PostDto;
 import com.codewithsameer.blog.repositories.CommentRepo;
 import com.codewithsameer.blog.repositories.PostRepo;
 import com.codewithsameer.blog.services.CommentService;
@@ -45,5 +46,6 @@ public class CommentServiceImpl implements CommentService{
 		this.commentRepo.delete(com);
 	}
 
+	
 	
 }
