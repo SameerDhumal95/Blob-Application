@@ -1,0 +1,8 @@
+package com.codewithsameer.blog.security;
+
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+public class CustomUserDetailService implements UserDetailsService {
+
+}

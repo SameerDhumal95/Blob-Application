@@ -1,0 +1,5 @@
+package com.codewithsameer.blog.entities;
+
+public class Role {
+
+}
