@@ -1,0 +1,15 @@
+package com.codewithsameer.blog.security;
+
+import java.io.Serializable;
+
+@Data
+public class JwtAuthResponse implements Serializable {
+	private static final long serialVersionUID = -8091879091924046844L;
+	private  String token;
+	public JwtResponse(String jwttoken) {
+		this.token = token;
+	}
+	public String getToken() {
+		return this.token;
+	}
+}
