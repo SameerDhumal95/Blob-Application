@@ -1,7 +1,7 @@
 package com.codewithsameer.blog.security;
 
 import java.io.IOException;
-import java.nio.charset.MalformedInputException;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -39,11 +39,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
 		System.out.println(requestToken);
 		
 		String username = null;
-		String jwtToken = null;
+		
 		String token = null;
 		// JWT Token is in the form "Bearer token". Remove Bearer word and get
 		// only the Token
-		if (requestToken != null && requestToken.startsWith("Bearer "))
+		if (requestToken != null && requestToken.startsWith("Bearer"))
 		{
 			
 			token = requestToken.substring(7);

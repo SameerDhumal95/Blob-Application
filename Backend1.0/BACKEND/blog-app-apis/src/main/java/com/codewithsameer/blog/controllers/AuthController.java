@@ -1,5 +1,6 @@
 package com.codewithsameer.blog.controllers;
 
+
 import java.security.DigestException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +43,9 @@ public class AuthController {
 		UserDetails userDetails = this.userDetailService.loadUserByUsername(request.getUsername());
 	
 		String token = this.jwtTokenHelper.generateToken(userDetails);
-	this.jwtTokenHelper.generateToken(userDetails);
+	
 	
 	JwtAuthResponse response = new JwtAuthResponse();
-	
 	response.setToken(token);
 	return new ResponseEntity<JwtAuthResponse>(response, HttpStatus.OK);
 	

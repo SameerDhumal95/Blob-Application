@@ -2,7 +2,8 @@ package com.codewithsameer.blog.security;
 
 import java.io.IOException;
 
-import org.springframework.security.core.AuthenticationException;
+import javax.naming.AuthenticationException;
+
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +16,15 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint{
 
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,
-			AuthenticationException authException) throws IOException, ServletException {
-		
+			org.springframework.security.core.AuthenticationException authException)
+			throws IOException, ServletException {
+
 		response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Access Denied ! !");
 		
 	}
+
+
+	
+	
 
 }

@@ -57,12 +57,15 @@ public class User implements UserDetails{
    joinColumns = @JoinColumn(name="user",referencedColumnName = "id"),
    inverseJoinColumns = @JoinColumn(name="role",referencedColumnName = "id")
 		   )
+   
    private Set<Role> roles = new HashSet<>();
 
 @Override
 public Collection<? extends GrantedAuthority> getAuthorities() {
+	// TODO Auto-generated method stub
 	List<SimpleGrantedAuthority> authorities = this.roles.stream().map((role)->new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
 	return authorities;
+
 }
 
 @Override

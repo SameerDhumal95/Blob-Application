@@ -1,0 +1,5 @@
+package com.codewithsameer.blog.config;
+
+public class SecurityConfig {
+
+}

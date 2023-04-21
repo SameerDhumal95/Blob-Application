@@ -1,0 +1,5 @@
+package com.codewithsameer.blog.security;
+
+public class JwtAuthenticationEntryPoint {
+
+}

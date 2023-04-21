@@ -8,6 +8,6 @@ import com.codewithsameer.blog.entities.User;
 
 public interface UserRepo extends JpaRepository<User, Integer>{
 
-	Optional<User> findByEmail(String email);
 	
+	Optional<User> findByEmail(String email);
 }

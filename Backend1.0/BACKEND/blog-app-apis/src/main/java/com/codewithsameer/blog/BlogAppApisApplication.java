@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class BlogAppApisApplication implements CommandLineRunner{
 
 	@Autowired
-	private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(BlogAppApisApplication.class, args);
@@ -28,8 +28,10 @@ public class BlogAppApisApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+	
 		System.out.println(this.passwordEncoder.encode("abc"));
 		
 	}
+
+	
 }
